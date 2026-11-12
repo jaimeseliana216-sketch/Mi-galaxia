@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#100b19">
+<meta name="description" content="Tu universo personal de lectura">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<title>Mi Galaxia 🌌</title>
+</head>
+<body>
+<div class="space-glow"></div>
+<header class="topbar">
+  <div class="brand"><div class="brand-icon">✦</div><div><strong>Mi Galaxia</strong><small>Tu universo literario</small></div></div>
+  <button class="icon-btn" id="settingsBtn" aria-label="Ajustes">⚙</button>
+</header>
+
+<main>
+  <section class="welcome">
+    <div class="eyebrow">✧ TU UNIVERSO PERSONAL ✧</div>
+    <h1>Un mundo de historias<br><span>te está esperando.</span></h1>
+    <p>Guarda tus libros, crea tus estanterías y lee a tu manera.</p>
+    <button class="primary" id="addBookBtn">＋ Añadir mis libros</button>
+    <input id="filePicker" type="file" accept=".pdf,.epub,application/pdf,application/epub+zip" multiple hidden>
+  </section>
+
+  <section class="continue-card" id="continueCard" hidden>
+    <div class="continue-art">📖</div>
+    <div class="continue-copy"><small>EN TU ÓRBITA ACTUAL</small><h2 id="continueTitle">Tu próxima lectura</h2><p id="continueMeta">Importa un libro para comenzar</p><button class="text-btn" id="continueBtn">Continuar leyendo →</button></div>
+  </section>
+
+  <section class="section-head">
+    <div><div class="eyebrow">✦ EXPLORA</div><h2>Mis estanterías</h2></div>
+    <button class="small-btn" id="newShelfBtn">＋ Estantería</button>
+  </section>
+  <div class="shelf-tabs" id="shelfTabs"><button class="tab active" data-shelf="Todos">Todos</button><button class="tab" data-shelf="Leyendo">Leyendo</button><button class="tab" data-shelf="Pendientes">Pendientes</button><button class="tab" data-shelf="Terminados">Terminados</button></div>
+
+  <section class="library-panel">
+    <div class="library-toolbar">
+      <span id="bookCount">0 libros</span>
+      <div class="view-switch"><button class="view-btn active" data-view="covers" title="Portadas">▦</button><button class="view-btn" data-view="spines" title="Lomos">▥</button></div>
+    </div>
+    <div id="bookshelf" class="bookshelf empty-state">
+      <div class="empty-stars">✦　·　✧　·　✦</div>
+      <div class="empty-book">📚</div>
+      <h3>Tu estantería está esperando</h3>
+      <p>Importa tus archivos PDF o EPUB y comenzará a llenarse tu universo.</p>
+      <button class="outline-btn" id="emptyAddBtn">Importar primer libro</button>
+    </div>
+  </section>
+
+  <section class="quick-stats">
+    <div><span>📚</span><strong id="statBooks">0</strong><small>Libros</small></div>
+    <div><span>📄</span><strong id="statPages">0</strong><small>Páginas registradas</small></div>
+    <div><span>⏱</span><strong id="statMinutes">0</strong><small>Minutos de lectura</small></div>
+  </section>
+</main>
+
+<nav class="bottom-nav">
+  <button class="nav-item active"><span>⌂</span>Inicio</button>
+  <button class="nav-item" id="libraryNav"><span>▤</span>Biblioteca</button>
+  <button class="nav-item" id="quotesNav"><span>♡</span>Frases</button>
+  <button class="nav-item" id="statsNav"><span>✧</span>Actividad</button>
+</nav>
+
+<dialog id="bookDialog" class="modal">
+  <form method="dialog" class="modal-card">
+    <button class="close" aria-label="Cerrar">×</button>
+    <div class="eyebrow">DETALLES DEL LIBRO</div>
+    <div id="detailCover" class="detail-cover">📖</div>
+    <h2 id="detailTitle">Libro</h2><p id="detailFormat" class="muted"></p>
+    <label>Autor <input id="authorInput" placeholder="Nombre del autor"></label>
+    <label>Estantería
+      <select id="statusInput"><option>Leyendo</option><option>Pendientes</option><option>Terminados</option></select>
+    </label>
+    <label>Progreso (%) <input id="progressInput" type="number" min="0" max="100" value="0"></label>
+    <div class="modal-actions"><button type="button" class="danger" id="deleteBookBtn">Eliminar</button><button type="button" class="primary" id="saveBookBtn">Guardar</button></div>
+    <button type="button" class="primary full" id="openBookBtn">Abrir libro</button>
+  </form>
+</dialog>
+
+<dialog id="readerDialog" class="reader-modal">
+  <div class="reader-shell">
+    <header class="reader-head"><button class="icon-btn" id="closeReader">←</button><div><strong id="readerTitle">Lectura</strong><small id="readerPosition">Tu espacio de lectura</small></div><button class="icon-btn" id="readerSettings">Aa</button></header>
+    <div id="readerContent" class="reader-content"><p>Tu libro aparecerá aquí.</p></div>
+    <footer class="reader-foot"><button id="prevPage">Anterior</button><span id="readerProgress">0%</span><button id="nextPage">Siguiente</button></footer>
+  </div>
+</dialog>
+
+<dialog id="settingsDialog" class="modal">
+ <form method="dialog" class="modal-card settings-card">
+  <button class="close">×</button><div class="eyebrow">PERSONALIZA TU LECTURA</div><h2>Tu forma de leer</h2>
+  <label>Tamaño de letra <output id="fontOutput">20 px</output><input id="fontSize" type="range" min="14" max="32" value="20"></label>
+  <label>Interlineado <input id="lineHeight" type="range" min="1.2" max="2.2" step=".1" value="1.7"></label>
+  <label>Fondo<select id="readerTheme"><option value="dark">Oscuro</option><option value="gray">Gris</option><option value="cream">Crema</option><option value="violet">Violeta</option></select></label>
+  <label>Forma de lectura<select id="readingMode"><option value="pages">Páginas</option><option value="scroll">Desplazamiento vertical</option></select></label>
+  <button class="primary full" id="applySettings" type="button">Aplicar ajustes</button>
+ </form>
+</dialog>
+
+<dialog id="shelfDialog" class="modal">
+ <form method="dialog" class="modal-card"><button class="close">×</button><div class="eyebrow">NUEVO RINCÓN</div><h2>Crear estantería</h2><label>Nombre<input id="shelfName" placeholder="Ej. Fantasía y magia"></label><button class="primary full" id="createShelf" type="button">Crear</button></form>
+</dialog>
+
+<div id="toast" class="toast" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.93/dist/epub.min.js"></script>
+<script src="app.js"></script>
+</body></html>
