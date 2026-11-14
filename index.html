@@ -2,68 +2,78 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#100b19">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100b19">
 <title>Mi Galaxia 🌌</title>
 <style>
 :root{--bg:#100b19;--panel:#1d1429;--card:#291d39;--text:#f8f0ff;--muted:#c0b1d0;--accent:#c99aff;--line:#49345c}
 *{box-sizing:border-box}
 body{margin:0;background:radial-gradient(ellipse at top,#40245b,var(--bg) 70%);color:var(--text);font-family:system-ui,Arial,sans-serif}
-header{text-align:center;padding:26px 15px}
+header{text-align:center;padding:25px 15px 14px}
 h1{color:#e4c8ff;margin:4px;font-size:30px}
-header p{color:var(--muted)}
-main{max-width:950px;margin:auto;padding:12px 16px 50px}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:17px;margin:14px 0}
-h2{font-size:19px;margin:0 0 13px}
-button,.upload{background:#7546a0;color:white;border:0;border-radius:11px;padding:11px 15px;font-weight:650;cursor:pointer;display:inline-block}
+header p{color:var(--muted);margin:6px}
+.dedication{max-width:680px;margin:12px auto 0;padding:12px 16px;border:1px solid #674785;background:#241632;border-radius:15px;color:#ead8ff;font-size:13px;line-height:1.5}
+main{max-width:1000px;margin:auto;padding:10px 15px 45px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin:13px 0}
+h2{font-size:19px;margin:0 0 12px}
+.muted,small{color:var(--muted)}
+button,.upload{background:#7546a0;color:white;border:0;border-radius:11px;padding:10px 13px;font-weight:650;cursor:pointer;display:inline-block}
 .secondary{background:#382849;border:1px solid var(--line)}
 .danger{background:#783b59}
-input,select{background:#120d1b;color:white;border:1px solid var(--line);border-radius:10px;padding:11px;font-size:14px;max-width:100%}
+input,select{background:#120d1b;color:white;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:14px;max-width:100%}
 input[type=file]{display:none}
-.controls{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .controls input{flex:1;min-width:130px}
 .stats{display:flex;gap:9px;flex-wrap:wrap}
-.stat{background:#291d39;padding:12px;border-radius:12px;flex:1;min-width:75px;text-align:center}
-.stat strong{display:block;font-size:23px;color:var(--accent)}
+.stat{background:var(--card);padding:11px;border-radius:12px;flex:1;min-width:72px;text-align:center}
+.stat strong{display:block;font-size:22px;color:var(--accent)}
 .stat span{font-size:12px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:13px;margin-top:15px}
-.book{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px;min-width:0}
-.cover{height:185px;background:linear-gradient(145deg,#70449a,#21132e);border-radius:9px;display:grid;place-items:center;overflow:hidden;margin-bottom:10px}
-.cover img{width:100%;height:100%;object-fit:contain}
-.cover span{font-size:48px}
-.book h3{font-size:14px;overflow-wrap:anywhere;margin:5px 0}
-.book small{color:var(--muted)}
-.book select,.book button{width:100%;margin-top:8px}
-.book select{padding:8px}
-.book button{padding:9px}
-.empty{text-align:center;color:var(--muted);padding:25px}
-footer{text-align:center;color:var(--muted);padding:20px;font-size:12px}
+.shelf{display:flex;gap:13px;overflow-x:auto;align-items:flex-end;padding:15px 9px 12px;margin:12px 0 18px;background:linear-gradient(#281a38,#1a1225);border-bottom:9px solid #674785;border-radius:12px;min-height:205px}
+.book{flex:0 0 125px;width:125px;min-width:0;text-align:center;position:relative}
+.cover{height:158px;border-radius:5px 9px 9px 5px;overflow:hidden;background:linear-gradient(145deg,#70449a,#21132e);display:grid;place-items:center;box-shadow:5px 5px 10px #08050d}
+.cover img{width:100%;height:100%;object-fit:contain;background:#160f20}
+.cover span{font-size:42px}
+.book.spine{flex-basis:65px;width:65px}
+.book.spine .cover{height:175px;width:58px;margin:auto;background:linear-gradient(90deg,#38204d,#8252a4,#44265c);border-left:5px solid #c99aff;border-radius:4px;writing-mode:vertical-rl}
+.book.spine .cover img{display:none}
+.book.spine .cover span{font-size:13px;font-weight:700;writing-mode:vertical-rl;padding:8px;overflow:hidden}
+.book h3{font-size:12px;margin:7px 0 3px;overflow-wrap:anywhere}
+.book small{font-size:10px}
+.book select,.book button{width:100%;margin-top:6px;padding:8px;font-size:12px}
+.book input{width:100%;min-width:0;padding:7px;font-size:11px;margin-top:5px}
+.empty{text-align:center;color:var(--muted);padding:24px}
+footer{text-align:center;color:var(--muted);padding:18px;font-size:12px}
 #reader{display:none;position:fixed;inset:0;background:#100b19;z-index:10;padding:10px;overflow:auto}
-#readerBar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding-bottom:10px}
-#readerTitle{color:#e5caff;flex:1;font-size:14px;min-width:100px}
-#pageInfo{color:var(--muted);font-size:13px}
-#readingArea{background:#eee5d8;color:#21192a;border-radius:10px;min-height:78vh;padding:8px;text-align:center}
-#pdfCanvas{max-width:100%;height:auto}
+#readerBar{display:flex;gap:7px;align-items:center;flex-wrap:nowrap;padding-bottom:10px}
+#readerTitle{color:#e5caff;flex:1;font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#pageInfo{color:var(--muted);font-size:12px;white-space:nowrap}
+#readingArea{background:#eee5d8;color:#21192a;border-radius:10px;min-height:78vh;padding:8px;text-align:center;touch-action:pan-y}
+#pdfCanvas{max-width:100%;height:auto;touch-action:pan-y}
 #epubView{height:78vh;background:#f5eddf}
 .readerError{padding:25px;color:#35233f}
+.readerTools{display:flex;justify-content:center;gap:8px;margin:8px 0}
+.readerTools button{min-width:42px}
+.hint{text-align:center;color:var(--muted);font-size:11px;margin:6px}
 </style>
 </head>
 <body>
 <header>
 <h1>🌌 Mi Galaxia</h1>
 <p>Tu universo personal de lectura</p>
+<div class="dedication">Para Angel David, mi estrella favorita. Que nunca te falten sueños, historias y universos por descubrir. Con amor, siempre. 💜</div>
 </header>
 <main>
 <section class="panel">
 <h2>✨ Mi biblioteca</h2>
-<p style="color:var(--muted)">Tus historias favoritas tienen su propio lugar.</p>
+<p class="muted">Tus historias favoritas tienen su propio lugar.</p>
 <div class="controls">
 <label class="upload" for="files">＋ Añadir mis libros</label>
 <input id="files" type="file" accept=".pdf,.epub,application/pdf,application/epub+zip" multiple>
 <input id="search" placeholder="Buscar un libro...">
+<select id="filter">
+<option>Todos</option><option>Leyendo</option><option>Pendientes</option><option>Terminados</option>
+</select>
 </div>
-<p id="message" style="color:#d8b5ff;font-size:13px"></p>
+<p id="message" class="muted"></p>
 </section>
 <section class="panel">
 <h2>📚 Mi progreso</h2>
@@ -75,196 +85,258 @@ footer{text-align:center;color:var(--muted);padding:20px;font-size:12px}
 </div>
 </section>
 <section class="panel">
-<div class="controls" style="justify-content:space-between">
-<h2 style="margin:0">🌙 Mis estanterías</h2>
-<select id="filter">
-<option>Todos</option>
-<option>Leyendo</option>
-<option>Pendientes</option>
-<option>Terminados</option>
-</select>
-</div>
-<div id="books" class="grid"></div>
+<h2>🌙 Mis estanterías</h2>
+<div id="books"></div>
 </section>
 <footer>Hecho con cariño para tu universo de libros 💜</footer>
 </main>
 <div id="reader">
 <div id="readerBar">
-<button class="secondary" id="closeReader">← Biblioteca</button>
+<button class="secondary" id="closeReader">←</button>
 <strong id="readerTitle"></strong>
-<button class="secondary" id="previous">Anterior</button>
+<button class="secondary" id="previous">‹</button>
 <span id="pageInfo"></span>
-<button class="secondary" id="next">Siguiente</button>
+<button class="secondary" id="next">›</button>
+</div>
+<div class="readerTools">
+<button class="secondary" id="smaller">A−</button>
+<button class="secondary" id="larger">A+</button>
 </div>
 <div id="readingArea"></div>
+<p class="hint">También puedes deslizar a izquierda o derecha para cambiar de página.</p>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
 <script>
-// Desactiva el service worker antiguo para cargar esta versión.
-if ('serviceWorker' in navigator) {
- navigator.serviceWorker.getRegistrations().then(list => list.forEach(reg => reg.unregister()));
-}
-if ('caches' in window) {
- caches.keys().then(keys => keys.forEach(key => caches.delete(key)));
-}
-const $ = id => document.getElementById(id);
-let db = null, allBooks = [], pdfDoc = null, epubBook = null, rendition = null, currentPage = 1;
-if (window.pdfjsLib) {
- pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-}
-const request = indexedDB.open('MiGalaxiaDB', 1);
-request.onupgradeneeded = event => {
- const d = event.target.result;
- if (!d.objectStoreNames.contains('books')) {
-  d.createObjectStore('books', {keyPath:'id', autoIncrement:true});
- }
+if('serviceWorker'in navigator){navigator.serviceWorker.getRegistrations().then(a=>a.forEach(r=>r.unregister())).catch(()=>{});}
+if(window.pdfjsLib)pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const $=id=>document.getElementById(id);
+let db=null,allBooks=[],pdfDoc=null,epubBook=null,rendition=null,activeBook=null,currentPage=1,pdfScale=1.25,epubFont=100,touchStart=null;
+
+const request=indexedDB.open('MiGalaxiaDB',1);
+request.onupgradeneeded=e=>{
+ const d=e.target.result;
+ if(!d.objectStoreNames.contains('books'))d.createObjectStore('books',{keyPath:'id',autoIncrement:true});
 };
-request.onsuccess = event => {
- db = event.target.result;
- loadBooks();
-};
-request.onerror = () => {
- $('message').textContent = 'No se pudo abrir la biblioteca del navegador.';
-};
-function store(mode='readonly') {
- return db.transaction('books', mode).objectStore('books');
+request.onsuccess=e=>{db=e.target.result;loadBooks();};
+request.onerror=()=>{$('message').textContent='No se pudo abrir la biblioteca del navegador.';};
+
+function store(mode='readonly'){return db.transaction('books',mode).objectStore('books');}
+function loadBooks(){
+ const r=store().getAll();
+ r.onsuccess=()=>{allBooks=r.result||[];render();};
 }
-function loadBooks() {
- const r = store().getAll();
- r.onsuccess = () => {
-  allBooks = r.result;
-  render();
- };
+function updateBook(book,changes){
+ return new Promise((resolve,reject)=>{
+  const r=store('readwrite').get(book.id);
+  r.onsuccess=()=>{
+   const b=r.result;
+   if(!b)return resolve();
+   Object.assign(b,changes);
+   const w=store('readwrite').put(b);
+   w.onsuccess=()=>{Object.assign(book,changes);resolve();};
+   w.onerror=()=>reject(w.error);
+  };
+  r.onerror=()=>reject(r.error);
+ });
 }
-function saveBook(book) {
- const r = store('readwrite').add(book);
- r.onsuccess = () => {
-  loadBooks();
-  $('message').textContent = '¡Libro guardado en tu galaxia! ✨';
- };
- r.onerror = () => {
-  $('message').textContent = 'No se pudo guardar el libro.';
- };
+function saveBook(book){
+ const r=store('readwrite').add(book);
+ r.onsuccess=()=>{loadBooks();$('message').textContent='¡Libro guardado en tu galaxia! ✨';};
+ r.onerror=()=>{$('message').textContent='No se pudo guardar el libro.';};
 }
-$('files').addEventListener('change', event => {
- [...event.target.files].forEach(file => {
-  const ext = file.name.split('.').pop().toLowerCase();
-  if (!['pdf','epub'].includes(ext)) return;
-  saveBook({
+$('files').addEventListener('change',e=>{
+ [...e.target.files].forEach(file=>{
+  const ext=file.name.split('.').pop().toLowerCase();
+  if(['pdf','epub'].includes(ext))saveBook({
    name:file.name.replace(/\.(pdf|epub)$/i,''),
-   type:ext,
-   file:file,
-   status:'Pendientes',
-   added:Date.now()
+   type:ext,file,status:'Pendientes',added:Date.now(),
+   genre:'Sin género',saga:'',displayStyle:'portada',
+   lastPage:1,lastCfi:null
   });
  });
- event.target.value = '';
+ e.target.value='';
 });
-function render() {
- $('total').textContent = allBooks.length;
- $('reading').textContent = allBooks.filter(b => b.status === 'Leyendo').length;
- $('pending').textContent = allBooks.filter(b => b.status === 'Pendientes').length;
- $('finished').textContent = allBooks.filter(b => b.status === 'Terminados').length;
- const area = $('books');
+
+function render(){
+ $('total').textContent=allBooks.length;
+ $('reading').textContent=allBooks.filter(b=>b.status==='Leyendo').length;
+ $('pending').textContent=allBooks.filter(b=>(b.status||'Pendientes')==='Pendientes').length;
+ $('finished').textContent=allBooks.filter(b=>b.status==='Terminados').length;
+ const area=$('books');
  area.replaceChildren();
- const term = $('search').value.toLowerCase();
- const filter = $('filter').value;
- const visible = allBooks.filter(b =>
-  (filter === 'Todos' || b.status === filter) &&
+ const term=$('search').value.toLowerCase(),filter=$('filter').value;
+ const visible=allBooks.filter(b=>
+  (filter==='Todos'||(b.status||'Pendientes')===filter)&&
   b.name.toLowerCase().includes(term)
  );
- if (!visible.length) {
-  const p = document.createElement('p');
-  p.className = 'empty';
-  p.textContent = allBooks.length
-   ? 'No hay libros con ese filtro.'
-   : 'Tu galaxia espera sus primeros libros. 💜';
-  area.append(p);
-  return;
+ if(!visible.length){
+  const p=document.createElement('p');
+  p.className='empty';
+  p.textContent=allBooks.length?'No hay libros con ese filtro.':'Tu galaxia espera sus primeros libros. 💜';
+  area.append(p);return;
  }
- visible.forEach(book => {
-  const card = document.createElement('article');
-  card.className = 'book';
-  const cover = document.createElement('div');
-  cover.className = 'cover';
-  const symbol = document.createElement('span');
-  symbol.textContent = book.type === 'pdf' ? '📕' : '📘';
-  cover.append(symbol);
-  const title = document.createElement('h3');
-  title.textContent = book.name;
-  const info = document.createElement('small');
-  info.textContent = book.type.toUpperCase();
-  const select = document.createElement('select');
-  ['Pendientes','Leyendo','Terminados'].forEach(s => {
-   const o = document.createElement('option');
-   o.value = s;
-   o.textContent = s;
-   select.append(o);
-  });
-  select.value = book.status || 'Pendientes';
-  select.onchange = () => {
-   const r = store('readwrite').get(book.id);
-   r.onsuccess = () => {
-    const b = r.result;
-    b.status = select.value;
-    store('readwrite').put(b);
-    loadBooks();
-   };
-  };
-  const open = document.createElement('button');
-  open.textContent = 'Leer ahora';
-  open.onclick = () => openBook(book);
-  const del = document.createElement('button');
-  del.className = 'danger';
-  del.textContent = 'Eliminar';
-  del.onclick = () => {
-   if (confirm('¿Eliminar este libro de tu biblioteca?')) {
-    store('readwrite').delete(book.id).onsuccess = loadBooks;
-   }
-  };
-  card.append(cover,title,info,select,open,del);
-  area.append(card);
-  createCover(book,cover);
+ const groups={};
+ visible.forEach(b=>{
+  const key=b.genre||'Sin género';
+  (groups[key]??=[]).push(b);
+ });
+ Object.entries(groups).forEach(([genre,items])=>{
+  const h=document.createElement('h2');
+  h.textContent='✦ '+genre;
+  area.append(h);
+  const shelf=document.createElement('div');
+  shelf.className='shelf';
+  items.forEach(book=>shelf.append(makeCard(book)));
+  area.append(shelf);
  });
 }
-async function createCover(book, element) {
- try {
-  if (book.type === 'pdf' && window.pdfjsLib) {
-   const doc = await pdfjsLib.getDocument({
-    data: await book.file.arrayBuffer()
-   }).promise;
-   const page = await doc.getPage(1);
-   const viewport = page.getViewport({scale:0.55});
-   const canvas = document.createElement('canvas');
-   canvas.width = viewport.width;
-   canvas.height = viewport.height;
-   await page.render({
-    canvasContext:canvas.getContext('2d'),
-    viewport:viewport
-   }).promise;
-   const img = document.createElement('img');
-   img.alt = 'Portada de ' + book.name;
-   img.src = canvas.toDataURL('image/jpeg',0.8);
-   element.replaceChildren(img);
-   await doc.destroy();
-  } else if (book.type === 'epub' && window.ePub) {
-   const epub = window.ePub(book.file);
-   const coverUrl = await epub.coverUrl();
-   if (coverUrl) {
-    const img = document.createElement('img');
-    img.alt = 'Portada de ' + book.name;
-    img.src = coverUrl;
-    element.replaceChildren(img);
-   }
+
+function makeCard(book){
+ const card=document.createElement('article');
+ card.className='book'+(book.displayStyle==='lomo'?' spine':'');
+ const cover=document.createElement('div');
+ cover.className='cover';
+ const symbol=document.createElement('span');
+ symbol.textContent=book.displayStyle==='lomo'?book.name:(book.type==='pdf'?'📕':'📘');
+ cover.append(symbol);
+ const title=document.createElement('h3');
+ title.textContent=book.name;
+ const info=document.createElement('small');
+ info.textContent=book.type.toUpperCase()+(book.lastPage>1?' · pág. '+book.lastPage:'');
+ const status=document.createElement('select');
+ ['Pendientes','Leyendo','Terminados'].forEach(s=>{
+  const o=document.createElement('option');o.value=s;o.textContent=s;status.append(o);
+ });
+ status.value=book.status||'Pendientes';
+ status.onchange=()=>updateBook(book,{status:status.value}).then(loadBooks);
+ const genre=document.createElement('select');
+ ['Sin género','Fantasía','Romance','Misterio','Ciencia ficción','Terror','Otros'].forEach(s=>{
+  const o=document.createElement('option');o.value=s;o.textContent=s;genre.append(o);
+ });
+ genre.value=book.genre||'Sin género';
+ genre.onchange=()=>updateBook(book,{genre:genre.value}).then(loadBooks);
+ const saga=document.createElement('input');
+ saga.placeholder='Saga (opcional)';saga.value=book.saga||'';
+ saga.onchange=()=>updateBook(book,{saga:saga.value.trim()}).then(()=>$('message').textContent='Colección actualizada.');
+ const style=document.createElement('button');
+ style.className='secondary';
+ style.textContent=book.displayStyle==='lomo'?'Ver portada':'Ver lomo';
+ style.onclick=()=>updateBook(book,{displayStyle:book.displayStyle==='lomo'?'portada':'lomo'}).then(render);
+ const open=document.createElement('button');
+ open.textContent='Leer ahora';open.onclick=()=>openBook(book);
+ const del=document.createElement('button');
+ del.className='danger';del.textContent='Eliminar';
+ del.onclick=()=>{
+  if(confirm('¿Eliminar este libro de tu biblioteca?'))store('readwrite').delete(book.id).onsuccess=loadBooks;
+ };
+ card.append(cover,title,info,status,genre,saga,style,open,del);
+ createCover(book,cover);
+ return card;
+}
+
+async function createCover(book,element){
+ try{
+  if(book.displayStyle==='lomo')return;
+  if(book.type==='pdf'&&window.pdfjsLib){
+   const doc=await pdfjsLib.getDocument({data:await book.file.arrayBuffer()}).promise;
+   const page=await doc.getPage(1),v=page.getViewport({scale:.55}),c=document.createElement('canvas');
+   c.width=v.width;c.height=v.height;
+   await page.render({canvasContext:c.getContext('2d'),viewport:v}).promise;
+   const img=document.createElement('img');
+   img.alt='Portada de '+book.name;img.src=c.toDataURL('image/jpeg',.8);
+   element.replaceChildren(img);await doc.destroy();
+  }else if(book.type==='epub'&&window.ePub){
+   const epub=window.ePub(book.file),url=await epub.coverUrl();
+   if(url){const img=document.createElement('img');img.alt='Portada de '+book.name;img.src=url;element.replaceChildren(img);}
    epub.destroy();
   }
- } catch (error) {
-  // Se conserva la cubierta provisional si no se puede extraer.
- }
+ }catch(e){}
 }
 $('search').addEventListener('input',render);
 $('filter').addEventListener('change',render);
+
+async function openBook(book){
+ activeBook=book;
+ $('reader').style.display='block';
+ $('readerTitle').textContent=book.name;
+ $('readingArea').replaceChildren();
+ $('pageInfo').textContent='';
+ if(pdfDoc){try{await pdfDoc.destroy();}catch(e){}pdfDoc=null;}
+ if(epubBook){try{epubBook.destroy();}catch(e){}epubBook=null;}
+ rendition=null;currentPage=book.lastPage||1;
+ try{
+  if(book.type==='pdf'){
+   if(!window.pdfjsLib)throw Error('No se pudo cargar el lector PDF. Comprueba tu conexión a internet.');
+   pdfDoc=await pdfjsLib.getDocument({data:await book.file.arrayBuffer()}).promise;
+   await showPdfPage(currentPage);
+  }else{
+   if(!window.ePub)throw Error('No se pudo cargar el lector EPUB. Comprueba tu conexión a internet.');
+   const view=document.createElement('div');view.id='epubView';$('readingArea').append(view);
+   epubBook=window.ePub(book.file);
+   rendition=epubBook.renderTo('epubView',{width:'100%',height:'78vh'});
+   rendition.themes.fontSize(epubFont+'%');
+   rendition.on('relocated',loc=>{
+    const cfi=loc.start.cfi;
+    updateBook(activeBook,{lastCfi:cfi,status:'Leyendo'}).catch(()=>{});
+    $('pageInfo').textContent='EPUB';
+   });
+   await rendition.display(book.lastCfi||undefined);
+   $('pageInfo').textContent='EPUB';
+  }
+ }catch(error){
+  const p=document.createElement('p');p.className='readerError';
+  p.textContent='No se pudo abrir el libro: '+error.message;
+  $('readingArea').replaceChildren(p);
+ }
+}
+
+async function showPdfPage(n){
+ if(!pdfDoc)return;
+ currentPage=Math.max(1,Math.min(n,pdfDoc.numPages));
+ const page=await pdfDoc.getPage(currentPage),v=page.getViewport({scale:pdfScale}),canvas=document.createElement('canvas');
+ canvas.id='pdfCanvas';canvas.width=v.width;canvas.height=v.height;
+ $('readingArea').replaceChildren(canvas);
+ await page.render({canvasContext:canvas.getContext('2d'),viewport:v}).promise;
+ $('pageInfo').textContent=currentPage+' / '+pdfDoc.numPages;
+ if(activeBook)updateBook(activeBook,{lastPage:currentPage,status:'Leyendo'}).catch(()=>{});
+}
+
+$('previous').onclick=()=>{if(pdfDoc)showPdfPage(currentPage-1);else if(rendition)rendition.prev();};
+$('next').onclick=()=>{if(pdfDoc)showPdfPage(currentPage+1);else if(rendition)rendition.next();};
+$('smaller').onclick=()=>{
+ if(pdfDoc){pdfScale=Math.max(.75,pdfScale-.15);showPdfPage(currentPage);}
+ else if(rendition){epubFont=Math.max(70,epubFont-10);rendition.themes.fontSize(epubFont+'%');}
+};
+$('larger').onclick=()=>{
+ if(pdfDoc){pdfScale=Math.min(2.2,pdfScale+.15);showPdfPage(currentPage);}
+ else if(rendition){epubFont=Math.min(180,epubFont+10);rendition.themes.fontSize(epubFont+'%');}
+};
+
+$('readingArea').addEventListener('touchstart',e=>{
+ if(e.touches.length===1)touchStart={x:e.touches[0].clientX,y:e.touches[0].clientY};
+},{passive:true});
+$('readingArea').addEventListener('touchend',e=>{
+ if(!touchStart)return;
+ const dx=e.changedTouches[0].clientX-touchStart.x;
+ const dy=e.changedTouches[0].clientY-touchStart.y;
+ touchStart=null;
+ if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.3){
+  if(dx<0)$('next').click();else $('previous').click();
+ }
+},{passive:true});
+
+$('closeReader').onclick=async()=>{
+ $('reader').style.display='none';
+ if(pdfDoc){try{await pdfDoc.destroy();}catch(e){}pdfDoc=null;}
+ if(epubBook){try{epubBook.destroy();}catch(e){}epubBook=null;}
+ rendition=null;activeBook=null;loadBooks();
+};
+</script>
+</body>
+</html>
+dEventListener('change',render);
 async function openBook(book) {
  $('reader').style.display = 'block';
  $('readerTitle').textContent = book.name;
