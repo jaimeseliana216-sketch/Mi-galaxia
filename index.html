@@ -7,41 +7,46 @@
 <meta name="theme-color" content="#100b19">
 <title>Mi Galaxia 🌌</title>
 <style>
-:root{--bg:#100b19;--panel:#1d1429;--card:#261b35;--text:#f6efff;--muted:#b8a9c9;--accent:#bd8cff;--line:#443254}
+:root{--bg:#100b19;--panel:#1d1429;--card:#291d39;--text:#f8f0ff;--muted:#c0b1d0;--accent:#c99aff;--line:#49345c}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#382052,var(--bg) 65%);color:var(--text);font-family:system-ui,Arial,sans-serif;min-height:100vh}
-header{padding:28px 20px 20px;text-align:center}
-h1{font-size:30px;margin:5px;color:#e5caff}
-header p{color:var(--muted);margin:6px}
-main{max-width:900px;margin:auto;padding:12px 16px 60px}
-.panel{background:#1d1429eF;border:1px solid var(--line);border-radius:18px;padding:17px;margin:14px 0}
-h2{font-size:19px;margin:0 0 12px}
-button,.upload{background:#7546a0;color:white;border:0;border-radius:12px;padding:12px 16px;font-size:14px;font-weight:600;cursor:pointer;display:inline-block}
-button.secondary{background:#382849;border:1px solid #654b7b}
-button.danger{background:#783b59}
-input,select{background:#120d1b;color:white;border:1px solid var(--line);border-radius:10px;padding:12px;font-size:15px;max-width:100%}
+body{margin:0;background:radial-gradient(ellipse at top,#40245b,var(--bg) 70%);color:var(--text);font-family:system-ui,Arial,sans-serif}
+header{text-align:center;padding:26px 15px}
+h1{color:#e4c8ff;margin:4px;font-size:30px}
+header p{color:var(--muted)}
+main{max-width:950px;margin:auto;padding:12px 16px 50px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:17px;margin:14px 0}
+h2{font-size:19px;margin:0 0 13px}
+button,.upload{background:#7546a0;color:white;border:0;border-radius:11px;padding:11px 15px;font-weight:650;cursor:pointer;display:inline-block}
+.secondary{background:#382849;border:1px solid var(--line)}
+.danger{background:#783b59}
+input,select{background:#120d1b;color:white;border:1px solid var(--line);border-radius:10px;padding:11px;font-size:14px;max-width:100%}
 input[type=file]{display:none}
 .controls{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-.controls input{flex:1;min-width:140px}
-.stats{display:flex;gap:10px;flex-wrap:wrap}
-.stat{background:#291d39;padding:12px 16px;border-radius:12px;flex:1;min-width:90px;text-align:center}
-.stat strong{display:block;font-size:23px;color:#d8b5ff}
+.controls input{flex:1;min-width:130px}
+.stats{display:flex;gap:9px;flex-wrap:wrap}
+.stat{background:#291d39;padding:12px;border-radius:12px;flex:1;min-width:75px;text-align:center}
+.stat strong{display:block;font-size:23px;color:var(--accent)}
 .stat span{font-size:12px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
-.book{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;min-width:0}
-.cover{height:115px;border-radius:10px;background:linear-gradient(145deg,#70449a,#251638);display:grid;place-items:center;font-size:42px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:13px;margin-top:15px}
+.book{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px;min-width:0}
+.cover{height:185px;background:linear-gradient(145deg,#70449a,#21132e);border-radius:9px;display:grid;place-items:center;overflow:hidden;margin-bottom:10px}
+.cover img{width:100%;height:100%;object-fit:contain}
+.cover span{font-size:48px}
 .book h3{font-size:14px;overflow-wrap:anywhere;margin:5px 0}
 .book small{color:var(--muted)}
-.book select{width:100%;margin:9px 0;font-size:12px;padding:8px}
-.book button{width:100%;margin:3px 0;padding:9px}
-.empty{text-align:center;color:var(--muted);padding:25px 8px}
-#reader{display:none;position:fixed;inset:0;background:#100b19;z-index:5;padding:12px;overflow:auto}
-#readerBar{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-bottom:12px}
-#readerTitle{font-size:14px;color:#e5caff;flex:1}
-#readingArea{background:#f5eddf;color:#21192a;border-radius:10px;min-height:75vh;padding:12px}
-#readingArea iframe{width:100%;height:75vh;border:0}
-#epubView{height:75vh}
-footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+.book select,.book button{width:100%;margin-top:8px}
+.book select{padding:8px}
+.book button{padding:9px}
+.empty{text-align:center;color:var(--muted);padding:25px}
+footer{text-align:center;color:var(--muted);padding:20px;font-size:12px}
+#reader{display:none;position:fixed;inset:0;background:#100b19;z-index:10;padding:10px;overflow:auto}
+#readerBar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding-bottom:10px}
+#readerTitle{color:#e5caff;flex:1;font-size:14px;min-width:100px}
+#pageInfo{color:var(--muted);font-size:13px}
+#readingArea{background:#eee5d8;color:#21192a;border-radius:10px;min-height:78vh;padding:8px;text-align:center}
+#pdfCanvas{max-width:100%;height:auto}
+#epubView{height:78vh;background:#f5eddf}
+.readerError{padding:25px;color:#35233f}
 </style>
 </head>
 <body>
@@ -52,7 +57,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 <main>
 <section class="panel">
 <h2>✨ Mi biblioteca</h2>
-<p style="color:var(--muted)">Guarda tus libros y lleva tu lectura a todas partes.</p>
+<p style="color:var(--muted)">Tus historias favoritas tienen su propio lugar.</p>
 <div class="controls">
 <label class="upload" for="files">＋ Añadir mis libros</label>
 <input id="files" type="file" accept=".pdf,.epub,application/pdf,application/epub+zip" multiple>
@@ -73,13 +78,13 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 <div class="controls" style="justify-content:space-between">
 <h2 style="margin:0">🌙 Mis estanterías</h2>
 <select id="filter">
-<option value="Todos">Todos</option>
-<option value="Leyendo">Leyendo</option>
-<option value="Pendientes">Pendientes</option>
-<option value="Terminados">Terminados</option>
+<option>Todos</option>
+<option>Leyendo</option>
+<option>Pendientes</option>
+<option>Terminados</option>
 </select>
 </div>
-<div id="books" class="grid" style="margin-top:15px"></div>
+<div id="books" class="grid"></div>
 </section>
 <footer>Hecho con cariño para tu universo de libros 💜</footer>
 </main>
@@ -87,107 +92,261 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 <div id="readerBar">
 <button class="secondary" id="closeReader">← Biblioteca</button>
 <strong id="readerTitle"></strong>
-<button class="secondary" id="smaller">A−</button>
-<button class="secondary" id="bigger">A+</button>
+<button class="secondary" id="previous">Anterior</button>
+<span id="pageInfo"></span>
+<button class="secondary" id="next">Siguiente</button>
 </div>
-<div id="readingArea"><div id="epubView"></div></div>
+<div id="readingArea"></div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
 <script>
-/* Retira la caché antigua para que no aparezca la página anterior */
-if("serviceWorker" in navigator){
- navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister()));
+// Desactiva el service worker antiguo para cargar esta versión.
+if ('serviceWorker' in navigator) {
+ navigator.serviceWorker.getRegistrations().then(list => list.forEach(reg => reg.unregister()));
 }
-if("caches" in window){caches.keys().then(keys=>keys.forEach(k=>caches.delete(k)));}
-
-const $=id=>document.getElementById(id);
-let db,allBooks=[],currentUrl=null,epubBook=null,fontSize=18;
-const request=indexedDB.open("MiGalaxiaDB",1);
-request.onupgradeneeded=e=>{
- const d=e.target.result;
- if(!d.objectStoreNames.contains("books"))d.createObjectStore("books",{keyPath:"id",autoIncrement:true});
-};
-request.onsuccess=e=>{db=e.target.result;loadBooks()};
-request.onerror=()=>{$("message").textContent="No se pudo abrir el almacenamiento del navegador.";};
-
-function store(mode="readonly"){return db.transaction("books",mode).objectStore("books")}
-function loadBooks(){
- const r=store().getAll();
- r.onsuccess=()=>{allBooks=r.result;render()};
+if ('caches' in window) {
+ caches.keys().then(keys => keys.forEach(key => caches.delete(key)));
 }
-function saveBook(book){
- const r=store("readwrite").add(book);
- r.onsuccess=()=>{loadBooks();$("message").textContent="¡Libro añadido a tu galaxia! ✨"};
- r.onerror=()=>{$("message").textContent="No se pudo guardar el libro."};
+const $ = id => document.getElementById(id);
+let db = null, allBooks = [], pdfDoc = null, epubBook = null, rendition = null, currentPage = 1;
+if (window.pdfjsLib) {
+ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 }
-$("files").addEventListener("change",async e=>{
- const files=[...e.target.files];
- for(const file of files){
-  const ext=file.name.split(".").pop().toLowerCase();
-  if(!["pdf","epub"].includes(ext)){continue}
-  saveBook({name:file.name.replace(/\.(pdf|epub)$/i,""),type:ext,file,status:"Pendientes",added:Date.now()});
+const request = indexedDB.open('MiGalaxiaDB', 1);
+request.onupgradeneeded = event => {
+ const d = event.target.result;
+ if (!d.objectStoreNames.contains('books')) {
+  d.createObjectStore('books', {keyPath:'id', autoIncrement:true});
  }
- e.target.value="";
+};
+request.onsuccess = event => {
+ db = event.target.result;
+ loadBooks();
+};
+request.onerror = () => {
+ $('message').textContent = 'No se pudo abrir la biblioteca del navegador.';
+};
+function store(mode='readonly') {
+ return db.transaction('books', mode).objectStore('books');
+}
+function loadBooks() {
+ const r = store().getAll();
+ r.onsuccess = () => {
+  allBooks = r.result;
+  render();
+ };
+}
+function saveBook(book) {
+ const r = store('readwrite').add(book);
+ r.onsuccess = () => {
+  loadBooks();
+  $('message').textContent = '¡Libro guardado en tu galaxia! ✨';
+ };
+ r.onerror = () => {
+  $('message').textContent = 'No se pudo guardar el libro.';
+ };
+}
+$('files').addEventListener('change', event => {
+ [...event.target.files].forEach(file => {
+  const ext = file.name.split('.').pop().toLowerCase();
+  if (!['pdf','epub'].includes(ext)) return;
+  saveBook({
+   name:file.name.replace(/\.(pdf|epub)$/i,''),
+   type:ext,
+   file:file,
+   status:'Pendientes',
+   added:Date.now()
+  });
+ });
+ event.target.value = '';
 });
-function render(){
- const term=$("search").value.toLowerCase();
- const filter=$("filter").value;
- $("total").textContent=allBooks.length;
- $("reading").textContent=allBooks.filter(b=>b.status==="Leyendo").length;
- $("pending").textContent=allBooks.filter(b=>b.status==="Pendientes").length;
- $("finished").textContent=allBooks.filter(b=>b.status==="Terminados").length;
- const area=$("books");area.replaceChildren();
- const visible=allBooks.filter(b=>(filter==="Todos"||b.status===filter)&&b.name.toLowerCase().includes(term));
- if(!visible.length){const p=document.createElement("p");p.className="empty";p.textContent=allBooks.length?"No hay libros con ese filtro.":"Tu galaxia está esperando sus primeros libros. 💜";area.append(p);return}
- visible.forEach(book=>{
-  const card=document.createElement("article");card.className="book";
-  const cover=document.createElement("div");cover.className="cover";cover.textContent=book.type==="pdf"?"📕":"📘";
-  const title=document.createElement("h3");title.textContent=book.name;
-  const info=document.createElement("small");info.textContent=book.type.toUpperCase();
-  const select=document.createElement("select");
-  ["Pendientes","Leyendo","Terminados"].forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;select.append(o)});
-  select.value=book.status;
-  select.onchange=()=>{const r=store("readwrite").get(book.id);r.onsuccess=()=>{const b=r.result;b.status=select.value;store("readwrite").put(b);loadBooks()}};
-  const open=document.createElement("button");open.textContent="Leer ahora";open.onclick=()=>openBook(book);
-  const del=document.createElement("button");del.className="danger";del.textContent="Eliminar";del.onclick=()=>{if(confirm("¿Eliminar este libro de tu biblioteca?")){store("readwrite").delete(book.id).onsuccess=loadBooks}};
-  card.append(cover,title,info,select,open,del);area.append(card);
+function render() {
+ $('total').textContent = allBooks.length;
+ $('reading').textContent = allBooks.filter(b => b.status === 'Leyendo').length;
+ $('pending').textContent = allBooks.filter(b => b.status === 'Pendientes').length;
+ $('finished').textContent = allBooks.filter(b => b.status === 'Terminados').length;
+ const area = $('books');
+ area.replaceChildren();
+ const term = $('search').value.toLowerCase();
+ const filter = $('filter').value;
+ const visible = allBooks.filter(b =>
+  (filter === 'Todos' || b.status === filter) &&
+  b.name.toLowerCase().includes(term)
+ );
+ if (!visible.length) {
+  const p = document.createElement('p');
+  p.className = 'empty';
+  p.textContent = allBooks.length
+   ? 'No hay libros con ese filtro.'
+   : 'Tu galaxia espera sus primeros libros. 💜';
+  area.append(p);
+  return;
+ }
+ visible.forEach(book => {
+  const card = document.createElement('article');
+  card.className = 'book';
+  const cover = document.createElement('div');
+  cover.className = 'cover';
+  const symbol = document.createElement('span');
+  symbol.textContent = book.type === 'pdf' ? '📕' : '📘';
+  cover.append(symbol);
+  const title = document.createElement('h3');
+  title.textContent = book.name;
+  const info = document.createElement('small');
+  info.textContent = book.type.toUpperCase();
+  const select = document.createElement('select');
+  ['Pendientes','Leyendo','Terminados'].forEach(s => {
+   const o = document.createElement('option');
+   o.value = s;
+   o.textContent = s;
+   select.append(o);
+  });
+  select.value = book.status || 'Pendientes';
+  select.onchange = () => {
+   const r = store('readwrite').get(book.id);
+   r.onsuccess = () => {
+    const b = r.result;
+    b.status = select.value;
+    store('readwrite').put(b);
+    loadBooks();
+   };
+  };
+  const open = document.createElement('button');
+  open.textContent = 'Leer ahora';
+  open.onclick = () => openBook(book);
+  const del = document.createElement('button');
+  del.className = 'danger';
+  del.textContent = 'Eliminar';
+  del.onclick = () => {
+   if (confirm('¿Eliminar este libro de tu biblioteca?')) {
+    store('readwrite').delete(book.id).onsuccess = loadBooks;
+   }
+  };
+  card.append(cover,title,info,select,open,del);
+  area.append(card);
+  createCover(book,cover);
  });
 }
-$("search").addEventListener("input",render);
-$("filter").addEventListener("change",render);
-
-function openBook(book){
- $("reader").style.display="block";
- $("readerTitle").textContent=book.name;
- const area=$("readingArea");area.replaceChildren();
- if(currentUrl){URL.revokeObjectURL(currentUrl);currentUrl=null}
- if(epubBook){try{epubBook.destroy()}catch(e){}epubBook=null}
- currentUrl=URL.createObjectURL(book.file);
- if(book.type==="pdf"){
-  const frame=document.createElement("iframe");frame.src=currentUrl;frame.title=book.name;area.append(frame);
- }else{
-  const view=document.createElement("div");view.id="epubView";area.append(view);
-  if(!window.ePub){
-   const script=document.createElement("script");
-   script.src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js";
-   script.onload=()=>showEpub(currentUrl);
-   script.onerror=()=>{area.textContent="No se pudo cargar el lector EPUB. Conéctate a internet e inténtalo de nuevo."};
-   document.head.append(script);
-  }else showEpub(currentUrl);
+async function createCover(book, element) {
+ try {
+  if (book.type === 'pdf' && window.pdfjsLib) {
+   const doc = await pdfjsLib.getDocument({
+    data: await book.file.arrayBuffer()
+   }).promise;
+   const page = await doc.getPage(1);
+   const viewport = page.getViewport({scale:0.55});
+   const canvas = document.createElement('canvas');
+   canvas.width = viewport.width;
+   canvas.height = viewport.height;
+   await page.render({
+    canvasContext:canvas.getContext('2d'),
+    viewport:viewport
+   }).promise;
+   const img = document.createElement('img');
+   img.alt = 'Portada de ' + book.name;
+   img.src = canvas.toDataURL('image/jpeg',0.8);
+   element.replaceChildren(img);
+   await doc.destroy();
+  } else if (book.type === 'epub' && window.ePub) {
+   const epub = window.ePub(book.file);
+   const coverUrl = await epub.coverUrl();
+   if (coverUrl) {
+    const img = document.createElement('img');
+    img.alt = 'Portada de ' + book.name;
+    img.src = coverUrl;
+    element.replaceChildren(img);
+   }
+   epub.destroy();
+  }
+ } catch (error) {
+  // Se conserva la cubierta provisional si no se puede extraer.
  }
 }
-function showEpub(url){
- epubBook=window.ePub(url);
- const rendition=epubBook.renderTo("epubView",{width:"100%",height:"75vh"});
- rendition.display();
- rendition.themes.fontSize(fontSize+"px");
+$('search').addEventListener('input',render);
+$('filter').addEventListener('change',render);
+async function openBook(book) {
+ $('reader').style.display = 'block';
+ $('readerTitle').textContent = book.name;
+ $('readingArea').replaceChildren();
+ $('pageInfo').textContent = '';
+ if (pdfDoc) {
+  try { await pdfDoc.destroy(); } catch(e) {}
+  pdfDoc = null;
+ }
+ if (epubBook) {
+  try { epubBook.destroy(); } catch(e) {}
+  epubBook = null;
+ }
+ rendition = null;
+ currentPage = 1;
+ try {
+  if (book.type === 'pdf') {
+   if (!window.pdfjsLib) {
+    throw new Error('No se pudo cargar el lector PDF. Comprueba tu conexión a internet.');
+   }
+   pdfDoc = await pdfjsLib.getDocument({
+    data: await book.file.arrayBuffer()
+   }).promise;
+   await showPdfPage(1);
+  } else {
+   if (!window.ePub) {
+    throw new Error('No se pudo cargar el lector EPUB. Comprueba tu conexión a internet.');
+   }
+   const view = document.createElement('div');
+   view.id = 'epubView';
+   $('readingArea').append(view);
+   epubBook = window.ePub(book.file);
+   rendition = epubBook.renderTo('epubView',{
+    width:'100%',
+    height:'78vh'
+   });
+   await rendition.display();
+   $('pageInfo').textContent = 'EPUB';
+  }
+ } catch(error) {
+  const p = document.createElement('p');
+  p.className = 'readerError';
+  p.textContent = 'No se pudo abrir el libro: ' + error.message;
+  $('readingArea').replaceChildren(p);
+ }
 }
-$("closeReader").onclick=()=>{
- $("reader").style.display="none";
- if(currentUrl){URL.revokeObjectURL(currentUrl);currentUrl=null}
- if(epubBook){try{epubBook.destroy()}catch(e){}epubBook=null}
+async function showPdfPage(number) {
+ if (!pdfDoc) return;
+ currentPage = Math.max(1,Math.min(number,pdfDoc.numPages));
+ const page = await pdfDoc.getPage(currentPage);
+ const viewport = page.getViewport({scale:1.35});
+ const canvas = document.createElement('canvas');
+ canvas.id = 'pdfCanvas';
+ canvas.width = viewport.width;
+ canvas.height = viewport.height;
+ $('readingArea').replaceChildren(canvas);
+ await page.render({
+  canvasContext:canvas.getContext('2d'),
+  viewport:viewport
+ }).promise;
+ $('pageInfo').textContent = currentPage + ' / ' + pdfDoc.numPages;
+}
+$('previous').onclick = () => {
+ if (pdfDoc) showPdfPage(currentPage-1);
+ else if (rendition) rendition.prev();
 };
-$("bigger").onclick=()=>{fontSize=Math.min(32,fontSize+2);if(epubBook)epubBook.rendition.themes.fontSize(fontSize+"px")};
-$("smaller").onclick=()=>{fontSize=Math.max(12,fontSize-2);if(epubBook)epubBook.rendition.themes.fontSize(fontSize+"px")};
+$('next').onclick = () => {
+ if (pdfDoc) showPdfPage(currentPage+1);
+ else if (rendition) rendition.next();
+};
+$('closeReader').onclick = async () => {
+ $('reader').style.display = 'none';
+ if (pdfDoc) {
+  try { await pdfDoc.destroy(); } catch(e) {}
+  pdfDoc = null;
+ }
+ if (epubBook) {
+  try { epubBook.destroy(); } catch(e) {}
+  epubBook = null;
+ }
+ rendition = null;
+};
 </script>
 </body>
 </html>
